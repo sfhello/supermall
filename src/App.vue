@@ -1,32 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <main-tabbar></main-tabbar>
+		<!-- 当用户点击其他路由的时候上一个页面不销毁，保持在原来的位置 -->
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  // import TabBar from './components/tabbar/tabbar';
+  // import TabBarItem from './components/tabbar/TabBarItem';
+  import Home from './views/home/Home';
+  import mainTabbar from './components/content/mainTabbar/mainTabbar';
+  export default {
+    name: 'App',
+    components:{
+      // TabBar,
+      // TabBarItem,
+      mainTabbar
+    }
+  }
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style lang="less">
+// @import "./assets/css/base.css";
+    
 </style>
