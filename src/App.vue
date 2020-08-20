@@ -11,7 +11,7 @@
 <script>
   // import TabBar from './components/tabbar/tabbar';
   // import TabBarItem from './components/tabbar/TabBarItem';
-  import Home from './views/home/Home';
+  // import Home from './views/home/Home';
   import mainTabbar from './components/content/mainTabbar/mainTabbar';
   export default {
     name: 'App',
@@ -22,8 +22,6 @@
     }
   }
 </script>
-
 <style lang="less">
-// @import "./assets/css/base.css";
-    
+// @import "./assets/css/base.css";  
 </style>

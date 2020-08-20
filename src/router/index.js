@@ -13,31 +13,57 @@ Vue.use(Router)
 
 const router = [
   {
+    path:'*',
+    redirect:'/home'
+  },
+  {
     path:'/',
     redirect:'/home'
   },
   {
     path:'/home',
+    meta:{
+      title:'首页'
+    },
     component:Home
   },
   {
     path:'/Category',
+    meta:{
+      title:'分类'
+    },
     component:Category
   },
   {
     path:'/Profile',
+    meta:{
+      title:'我的'
+    },
     component:Profile
   },
   {
     path:'/Cart',
+    meta:{
+      title:'购物车'
+    },
     component:Cart
   },
 	{
-		path:'/Detail/:id',
+    path:'/Detail/:id',
+    meta:{
+      title:'详情'
+    },
 		component:Detail
 	}
 ]
-export default new Router({
+
+var RouterConfig = {
   routes:router,
-  model:'history'
+  mode:'history'
+}
+const newrouter = new Router(RouterConfig)
+newrouter.beforeEach((to,from,next)=>{
+  window.document.title=to.meta.title;
+  next();
 })
+export default newrouter

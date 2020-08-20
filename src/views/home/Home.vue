@@ -1,4 +1,4 @@
-!<template>
+<template>
     <div>
         <div class="home">
             <nav-bar><label slot="center">购物街</label></nav-bar>

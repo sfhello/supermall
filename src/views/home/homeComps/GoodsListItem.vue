@@ -1,6 +1,6 @@
 !<template>
   <div class="goods">
-      <div class="goods-info" v-for="item in goodslistinfo" @click="itemClick(item.id)">
+      <div class="goods-info" v-for="item in goodslistinfo" @click="itemClick(item)">
             <img :src="item.img" @load="ImageLoad"/>
             <p>{{item.title}}</p>
             <div class="labelbox">
@@ -27,9 +27,10 @@
                     this.$bus.$emit('itemImageLoad');
                 },
 				//首页商品点击事件
-				itemClick(id){
-					// console.log("click start"+id)
-					this.$router.push('/Detail/'+id);
+				itemClick(item){
+                    // console.log("click start"+id)
+                    console.log(item)
+					this.$router.push('/Detail/'+item.id);
 				}
         }
     }

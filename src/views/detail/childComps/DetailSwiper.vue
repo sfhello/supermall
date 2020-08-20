@@ -1,7 +1,7 @@
 !<template>
     <swiper>
-        <swiper-item v-for="item in topImages">
-            <img :src="item"/>
+        <swiper-item v-for="(item,index) in topImages" :key="index" v-if="topImages.length>0">
+            <img :src="item" id="swiperImg"/>
         </swiper-item>
     </swiper>
 </template>
@@ -17,6 +17,32 @@
                     []
                 }
             }
+        },
+        data(){
+            return{
+                imgSize:this.topImages.length,
+                newImgList:[]
+            }
+        },
+        computed:{
+            reComputedTopImg:function(){
+                this.newImgList=this.topImages
+                console.log(" this.newImgLis=="+ this.topImages)
+            }
+        },
+        methods:{
+            reViewSwiper:function(){
+                var swiperImg = document.getElementById("swiperImg")
+                swiperImg.parentNode.removeChild("swiperImg")
+            }
+        },
+        created(){
+        },
+        activated(){
+            
+        },
+        deactivated(){
+            console.log("topImages==="+this.topImages)
         },
         components:{
             Swiper,
